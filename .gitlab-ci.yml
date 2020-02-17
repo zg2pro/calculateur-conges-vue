@@ -9,7 +9,7 @@ stages:
 cache:
   paths:
     - node_modules/
-install_dependencies-vue:
+install_dependencies:
   stage: prepare
   script:
     - npm run install:gitlab-config
