@@ -12,7 +12,7 @@ cache:
 install_dependencies-vue:
   stage: prepare
   script:
-    - npm install:gitlab-config
+    - npm run install:gitlab-config
     - npm install
   artifacts:
     paths:
