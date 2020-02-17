@@ -1,0 +1,52 @@
+image: node:12.15
+before_script:
+  - set -xe
+stages:
+  - prepare
+  - build
+  - test
+  - deploy
+cache:
+  paths:
+    - node_modules/
+install_dependencies-vue:
+  stage: prepare
+  script:
+    - npm install:gitlab-config
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+  only:
+    - master
+  tags:
+    - docker
+test:
+  stage: test
+  script:
+    - npm run test
+  only:
+    - master
+  tags:
+    - docker
+pages:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    - mkdir ../public
+    - cp -R dist/* ../public/
+    - cd ..
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+    
