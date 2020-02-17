@@ -8,7 +8,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "install:gitlab-config": "npm config set @cjc:registry https://gitlab.com/api/v4/packages/npm/",
+    "install:gitlab-config-a": "npm config set https://zg2pro-verdaccio.herokuapp.com/:_authToken ${VERDACCIO_HEROKU_AUTH_TOKEN}",
+    "install:gitlab-config-b": "npm config set https://zg2pro-verdaccio.herokuapp.com/:always-auth true",
+    "install:gitlab-config": "npm run install:gitlab-config-a & npm run install:gitlab-config-b",
     "publish:verdaccio": "npm publish --registry http://localhost:4873",
     "install:verdaccio": "npm install --registry http://localhost:4873"
   },
