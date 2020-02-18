@@ -13,7 +13,7 @@ install_dependencies:
   stage: prepare
   script:
   # this token expires every day anyway
-    - npm run install:config -- jQap7WB6y5JC0ymzzz4mWHDmQvmjLmE0CRFXbtf1Fw1Pnef8Qnp5gdTZcw9/jAOR
+    - npm run install:config
     - npm install
   artifacts:
     paths:

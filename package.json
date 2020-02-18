@@ -2,7 +2,7 @@
   "name": "@zg2pro-org/calculateur-conges-vue",
   "description": "calculateur-conges-vue",
   "author": "Gregory Anne",
-  "version": "0.1.0",
+  "version": "0.0.0-1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
