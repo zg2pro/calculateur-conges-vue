@@ -1,7 +1,12 @@
 <template>
   <div class="home">
+    My solution using
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Greg's TS-Vue.js/Nest.js App"/>
+    to import a nestJs service.
+    <br/>
+    <hr/>
+    <br/>
+    <Calculator msg="Welcome to Greg's TS-Vue.js/Nest.js App"/>
   </div>
 </template>
 

@@ -1,17 +1,25 @@
 <template>
   <div class="hello">
-    hello again
+    <datepicker v-model="startDate" name="startDate"></datepicker>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import Datepicker from 'vuejs-datepicker';
 
-@Component
+
+@Component({
+  components: {
+    Datepicker
+  }
+})
 export default class Calculator extends Vue {
+  startDate: string;
 
-
-
+  mounted () {
+    this.startDate = '12-09-2019'
+  }
 }
 </script>
 
