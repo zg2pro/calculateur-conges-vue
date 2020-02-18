@@ -1,18 +1,14 @@
 {
-  "name": "@cjc/calculateur-conges-vue",
+  "name": "@zg2pro-org/calculateur-conges-vue",
   "description": "calculateur-conges-vue",
   "author": "Gregory Anne",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "install:config-a": "npm config set //zg2pro-verdaccio.herokuapp.com/:_authToken ",
-    "install:config-b": "npm config set //zg2pro-verdaccio.herokuapp.com/:always-auth true",
-    "install:config-c": "npm config set registry https://zg2pro-verdaccio.herokuapp.com/",
-    "install:config": "npm run install:config-c & npm run install:config-b & npm run install:config-a",
-    "install:local": "npm install --registry http://localhost:4873"
+    "prepublish:version": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version",
+    "install:config": "npm config set //registry.npmjs.org/:_authToken=1151912b-1412-4f5b-b717-4c5f23ccfa2c"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -21,7 +17,7 @@
     "vue-property-decorator": "^8.3.0",
     "vue-router": "^3.1.5",
     "vuex": "^3.1.2",
-    "@cjc/calculateur-conges-api": "latest"
+    "@zg2pro-org/calculateur-conges-api": "latest"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
@@ -31,5 +27,17 @@
     "@vue/cli-service": "~4.2.0",
     "typescript": "~3.7.5",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-vue.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-vue/issues"
+  },
+  "homepage": "https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-vue#readme"
 }
