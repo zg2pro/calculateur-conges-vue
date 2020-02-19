@@ -1,7 +1,7 @@
 <template>
   <v-app>
 
-    My solution using <img alt="Vue logo" :src="image"> to import a NestJs service.
+    Ma solution utilisant <img alt="Vue logo" :src="image"> pour importer un service NestJs.
     <br/>
 <hr/>
     <br/>
