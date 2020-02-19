@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import { AppService as CalculatorService } from '@zg2pro-org/calculateur-conges-api/dist/app.service';
 import { CalculationInput } from '@zg2pro-org/calculateur-conges-api/dist/calculation-input';
 import { inject } from "vue-typescript-inject";
