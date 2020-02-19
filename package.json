@@ -1,22 +1,28 @@
 {
   "name": "@zg2pro-org/calculateur-conges-vue",
+  "version": "0.0.0-1",
   "description": "calculateur-conges-vue",
   "author": "Gregory Anne",
-  "version": "0.0.0-1",
   "scripts": {
+    "update:zg2pro-org": "npm install @zg2pro-org/calculateur-conges-api@latest --save",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "prepublish:version": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version",
-    "install:config": "npm config set //registry.npmjs.org/:_authToken=1151912b-1412-4f5b-b717-4c5f23ccfa2c"
+    "prepublish:version": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version"
   },
+  "main": ".eslintrc.js",
   "dependencies": {
-    "@zg2pro-org/calculateur-conges-api": "latest",
+    "@zg2pro-org/calculateur-conges-api": "0.0.0-20200219084546989",
+    "cache-manager": "^2.11.1",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.11.0",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.2",
     "vue-property-decorator": "^8.3.0",
     "vue-router": "^3.1.5",
+    "vue-typescript-inject": "^0.3.0",
+    "vuetify": "^2.2.11",
     "vuex": "^3.1.2"
   },
   "devDependencies": {
@@ -25,19 +31,22 @@
     "@vue/cli-plugin-typescript": "~4.2.0",
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
     "typescript": "~3.7.5",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "main": ".eslintrc.js",
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-vue.git"
+    "vue-cli-plugin-vuetify": "~2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
   },
   "bugs": {
     "url": "https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-vue/issues"
   },
-  "homepage": "https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-vue#readme"
+  "directories": {
+    "test": "test"
+  },
+  "homepage": "https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-vue#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-vue.git"
+  }
 }

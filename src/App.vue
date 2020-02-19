@@ -1,31 +1,37 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+
+    My solution using <img alt="Vue logo" :src="image"> to import a NestJs service.
+    <br/>
+<hr/>
+    <br/>
+    <v-content>
+      <Calculator/>
+    </v-content>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from 'vue';
+import Calculator from './components/Calculator.vue';
+//import SERVICE_IDENTIFIER from "./configs/ServiceIdentifiers";
+//import container from "./configs/DependencyConfigs";
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+export default Vue.extend({
+  name: 'App',
+  components: {
+    Calculator
+  },
+   // provide: {
+   //     [SERVICE_IDENTIFIER.CONTAINER]: container
+    //},
+  data: () => ({
+      image: require('@/assets/logo.png')
+  }),
+});
+</script>
+<style scoped>
+  img {
+    width: 40px;
+  }
 </style>

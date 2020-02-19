@@ -13,7 +13,7 @@ install_dependencies:
   stage: prepare
   script:
   # this token expires every day anyway
-    - npm run install:config
+    - npm config set //registry.npmjs.org/:_authToken=2a593b23-0f7b-42f5-81c3-55c016324b81
     - npm install
   artifacts:
     paths:
