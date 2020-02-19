@@ -42,8 +42,8 @@ pages:
   dependencies:
     - build
   script:
-    - mkdir ../public
-    - cp -R dist/* ../public/
+    - rm -rf public/*
+    - cp -R dist/* public/
     - cd ..
   artifacts:
     paths:
