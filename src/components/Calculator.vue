@@ -10,7 +10,7 @@
 
     <v-row justify="space-around">
       <v-checkbox
-              v-model="ci.workingDaysType"
+              v-model="ci.businessOpenOnSaturdays"
               label="Votre entreprise permet-elle de travailler le samedi ?"
       ></v-checkbox>
     </v-row>
@@ -71,7 +71,7 @@ export default class Calculator extends Vue {
 
   @Watch('startDate')
   @Watch('endDate')
-  @Watch('ci.workingDaysType')
+  @Watch('ci.businessOpenOnSaturdays')
   @Watch('ci.extraUnpaidDays')
   @Watch('ci.unpaidWeeks')
   private onPropertyChanged(value: string, oldValue: string) {
