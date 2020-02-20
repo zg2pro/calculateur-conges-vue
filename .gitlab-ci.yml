@@ -29,14 +29,6 @@ build:
     - master
   tags:
     - docker
-test:
-  stage: test
-  script:
-    - npm run test
-  only:
-    - master
-  tags:
-    - docker
 pages:
   stage: deploy
   dependencies:
