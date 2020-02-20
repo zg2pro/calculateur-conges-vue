@@ -10,7 +10,7 @@
 
     <v-row justify="space-around">
       <v-checkbox
-              v-model="workingDaysType"
+              v-model="ci.workingDaysType"
               label="Votre entreprise permet-elle de travailler le samedi ?"
       ></v-checkbox>
     </v-row>
@@ -18,7 +18,7 @@
     <v-row justify="space-around">
       <v-col cols="12" sm="6">
       <v-slider
-              v-model="unpaidWeeks"
+              v-model="ci.unpaidWeeks"
               color="orange"
               label="Nombre de semaines de congé sans solde sur la période"
               min="0"
@@ -31,7 +31,7 @@
     <v-row justify="space-around">
       <v-col cols="12" sm="6">
       <v-slider
-              v-model="extraUnpaidDays"
+              v-model="ci.extraUnpaidDays"
               color="orange"
               label="Nombre de jours en plus de ces semaines de congé sans solde sur la période"
               min="0"
@@ -62,9 +62,7 @@ import moment from 'moment';
 export default class Calculator extends Vue {
   startDate: string = new Date().toISOString().substr(0, 10);
   endDate: string = new Date().toISOString().substr(0, 10);
-  workingDaysType : boolean = false;
-  extraUnpaidDays : number = 0;
-  unpaidWeeks : number = 0;
+  ci: CalculationInput = new CalculationInput();
   result: number = 0;
 
   @inject()//(SERVICE_IDENTIFIER.CALCULATOR)
@@ -78,11 +76,8 @@ export default class Calculator extends Vue {
   @Watch('unpaidWeeks')
   onPropertyChanged(value: string, oldValue: string) {
     let ci = new CalculationInput();
-    ci.businessOpenOnSaturdays = this.workingDaysType;
     ci.endDate = moment(this.endDate, 'YYYY-MM-DD').format('DD-MM-YYYY');
     ci.startDate = moment(this.startDate, 'YYYY-MM-DD').format('DD-MM-YYYY');
-    ci.extraUnpaidDays = this.extraUnpaidDays;
-    ci.unpaidWeeks = this.unpaidWeeks;
     this.result = this.calculatorService.calculation(ci);
   }
 }
