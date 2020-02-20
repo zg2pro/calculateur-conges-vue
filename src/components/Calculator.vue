@@ -71,9 +71,9 @@ export default class Calculator extends Vue {
 
   @Watch('startDate')
   @Watch('endDate')
-  @Watch('workingDaysType')
-  @Watch('extraUnpaidDays')
-  @Watch('unpaidWeeks')
+  @Watch('ci.workingDaysType')
+  @Watch('ci.extraUnpaidDays')
+  @Watch('ci.unpaidWeeks')
   private onPropertyChanged(value: string, oldValue: string) {
     this.ci.endDate = moment(this.endDate, 'YYYY-MM-DD').format('DD-MM-YYYY');
     this.ci.startDate = moment(this.startDate, 'YYYY-MM-DD').format('DD-MM-YYYY');
