@@ -17,10 +17,10 @@ import Calculator from './components/Calculator.vue';
 export default Vue.extend({
   name: 'App',
   components: {
-    Calculator
+    Calculator,
   },
   data: () => ({
-      image: require('@/assets/logo.png')
+      image: require('@/assets/logo.png'),
   }),
 });
 </script>

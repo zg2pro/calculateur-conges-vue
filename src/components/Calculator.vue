@@ -51,22 +51,22 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import { AppService as CalculatorService } from '@zg2pro-org/calculateur-conges-api/dist/app.service';
-import { CalculationInput } from '@zg2pro-org/calculateur-conges-api/dist/calculation-input';
-import { inject } from "vue-typescript-inject";
+import { CalculatorService } from '@zg2pro-org/calculateur-conges-api/dist/calculator/calculator.service';
+import { CalculatorInput } from '@zg2pro-org/calculateur-conges-api/dist/calculator/calculator-input';
+import { inject } from 'vue-typescript-inject';
 import moment from 'moment';
 
 @Component({
-  providers: [CalculatorService]
+  providers: [CalculatorService],
 })
 export default class Calculator extends Vue {
-  startDate: string = new Date().toISOString().substr(0, 10);
-  endDate: string = new Date().toISOString().substr(0, 10);
-  ci: CalculationInput = new CalculationInput();
-  result: number = 0;
+  private startDate: string = new Date().toISOString().substr(0, 10);
+  private endDate: string = new Date().toISOString().substr(0, 10);
+  private ci: CalculatorInput = new CalculatorInput();
+  private result: number = 0;
 
-  @inject()//(SERVICE_IDENTIFIER.CALCULATOR)
-  private calculatorService!: CalculatorService
+  @inject()
+  private calculatorService!: CalculatorService;
 
 
   @Watch('startDate')
@@ -74,11 +74,10 @@ export default class Calculator extends Vue {
   @Watch('workingDaysType')
   @Watch('extraUnpaidDays')
   @Watch('unpaidWeeks')
-  onPropertyChanged(value: string, oldValue: string) {
-    let ci = new CalculationInput();
-    ci.endDate = moment(this.endDate, 'YYYY-MM-DD').format('DD-MM-YYYY');
-    ci.startDate = moment(this.startDate, 'YYYY-MM-DD').format('DD-MM-YYYY');
-    this.result = this.calculatorService.calculation(ci);
+  private onPropertyChanged(value: string, oldValue: string) {
+    this.ci.endDate = moment(this.endDate, 'YYYY-MM-DD').format('DD-MM-YYYY');
+    this.ci.startDate = moment(this.startDate, 'YYYY-MM-DD').format('DD-MM-YYYY');
+    this.result = this.calculatorService.calculation(this.ci);
   }
 }
 </script>
