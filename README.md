@@ -17,19 +17,22 @@ $ vue create vue-app
 
 4- Select `class-style component syntax`
 
-5-
+5- 
 ```bash
+$ cd vue-app
 $ npm install --save vue-template-loader webpack-stream cache-manager class-transformer class-validator core-js vuetify vue-typescript-inject
 ```
 
-6-To add your nest API also add this line in the package.json script :
+6- Also install all the spare libraries you want to use in your framework
+
+7-To add your nest API also add this line in the package.json script :
 ```js
 "scripts": {
     "update:zg2pro-org": "npm install @your-org/app-api@latest --save"
 ```
 your-org being your subsection in your npm registry, and app-api the artifact id of your nestjs API.
 
-7-Then go to the tsconfig.json and check the following properties :
+8-Then go to the tsconfig.json and check the following properties :
 ```js
     "importHelpers": true,
     "experimentalDecorators": true,
@@ -37,9 +40,9 @@ your-org being your subsection in your npm registry, and app-api the artifact id
     "allowSyntheticDefaultImports": true,
 ```
 
-8-Enable the dependency injection in your vuejs app (the engine will come from NestJS)
+9-Enable the dependency injection in your vuejs app (the engine will come from NestJS)
 
-8.1- Add the `plugin/injector.ts` file with:
+9.1- Add the `plugin/injector.ts` file with:
 ```js
 import Vue from 'vue';
 import 'reflect-metadata';
@@ -48,7 +51,7 @@ import VueTypeScriptInject from 'vue-typescript-inject';
 Vue.use(VueTypeScriptInject);
 ```
 
-8.2- Add the import in `main.ts`:
+9.2- Add the import in `main.ts`:
 ```js
 import './plugins/injector';
 ```
