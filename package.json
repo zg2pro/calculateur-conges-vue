@@ -15,7 +15,7 @@
     "@zg2pro-org/calculateur-conges-api": "0.0.0-20200220134952508",
     "cache-manager": "^2.11.1",
     "class-transformer": "^0.2.3",
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.14.0",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.2",
